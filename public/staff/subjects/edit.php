@@ -35,6 +35,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 //allows us to populate the page with subject details for GET requests
 else{
 	$subject = return_assoc_SELECT($id,$db);
+	$count = count_pos_subj($db);
+	echo $count['count'];
 }
 ?>
 
@@ -53,7 +55,13 @@ else{
 		<dl>
 			<dt>Position</dt>
 			<select name="position">
-				<option value="1">1</option>
+				<?php 
+				for($i=0;$i<$count['count'];$i++){
+					echo "<option value=".((int)$i).">";
+					echo ((int)$i+1)."</option>";
+				}
+				
+				?>
 			</select>
 		</dl>
 		<dl>

@@ -66,4 +66,11 @@
   	$sql .= "LIMIT 1";
   	mysqli_query($conn,$sql);
   }
+  function count_pos_subj($conn){
+  	$sql = "SELECT COUNT(subject_id) AS count FROM subjects";
+  	$result = mysqli_query($conn,$sql);
+  	$assoc = mysqli_fetch_assoc($result);
+  	return $assoc;
+
+  }
 ?>
