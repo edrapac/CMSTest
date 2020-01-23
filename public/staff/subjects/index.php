@@ -39,7 +39,7 @@
           <td><?php echo $subject['content']; ?></td>
           <td><a class="action" href="<?php echo WWW_ROOT . 'staff/subjects/show.php?id='.$subject['subject_id']; ?>">View</a></td>
           <td><a class="action" href="<?php echo 'edit.php?id=' . $subject['subject_id'];?>">Edit</a></td>
-          <td><a class="action" href="">Delete</a></td>
+          <td><a class="action" href="<?php echo 'delete.php?id='.$subject['subject_id'];?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>

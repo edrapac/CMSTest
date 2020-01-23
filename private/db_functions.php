@@ -73,4 +73,8 @@
   	return $assoc;
 
   }
+  function delete_subj($conn,$id){
+  	$sql = "DELETE FROM subjects WHERE subject_id=".$id;
+  	mysqli_query($conn,$sql);
+  }
 ?>
