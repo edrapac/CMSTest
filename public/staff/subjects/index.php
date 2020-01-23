@@ -38,7 +38,7 @@
     	    <td><?php echo $subject['menu_name']; ?></td>
           <td><?php echo $subject['content']; ?></td>
           <td><a class="action" href="<?php echo WWW_ROOT . 'staff/subjects/show.php?id='.$subject['subject_id']; ?>">View</a></td>
-          <td><a class="action" href="<?php echo 'edit.php?id=' . he(u($subject['subject_id']));?>">Edit</a></td>
+          <td><a class="action" href="<?php echo 'edit.php?id=' . $subject['subject_id'];?>">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
     	  </tr>
       <?php } ?>

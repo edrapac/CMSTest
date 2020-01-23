@@ -38,4 +38,32 @@
   	$sql .= "WHERE subject_id= ".$id;
   	return $sql;
   }
+  function new_subject($name,$position,$visible,$content,$assetid){
+  	$sql = "INSERT INTO subjects ";
+  	$sql .= "(menu_name,position,visible,content,asset_id) ";
+  	$sql .= "VALUES ";
+  	$sql .= "(";
+  	$sql .= "'".$name."'".",";
+  	$sql .= "'".$position."'".",";
+  	$sql .= "'".$visible."'".",";
+  	$sql .= "'".$content."'".",";
+  	$sql .= "'".$assetid."'".")";
+  	return $sql;
+  }
+  function return_assoc_SELECT($id,$conn){
+  	$query = show_subj($id); // used for mysqli_query
+  	$result = mysqli_query($conn,$query);
+  	$assoc = mysqli_fetch_assoc($result);
+  	return $assoc;
+  }
+  function update_subj($conn,$name,$position,$visible,$content,$id){
+  	$sql = "UPDATE subjects SET ";
+  	$sql .= "menu_name='".$name."', ";
+  	$sql .= "position='".$position."', ";
+  	$sql .= "visible='".$visible."', ";
+  	$sql .= "content='".$content."' ";
+  	$sql .= "WHERE subject_id={$id} ";
+  	$sql .= "LIMIT 1";
+  	mysqli_query($conn,$sql);
+  }
 ?>

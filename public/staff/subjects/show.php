@@ -2,10 +2,9 @@
 require_once('../../../private/initialize.php');
 $id = $_GET['id'] ?? '1'; //Ternary, if GET[id] is set use its value else use 1 for id
 $query = mysqli_query($db,show_subj($id));
-echo $id;
+echo show_subj($id);
 ?>
 <?php include(SHARED . '/staff_header.php'); ?>
-
 
 <div id=content>
   <div class="subjects listing">
@@ -22,10 +21,13 @@ echo $id;
         <th>Content</th>
       </tr>
       <tr>
+
       	<?php $subject = mysqli_fetch_assoc($query);?>
       	<td><?php echo $subject['subject_id']; ?></td>
       	<td><?php echo $subject['position']; ?></td>
       	<td><?php echo $subject['visible']; ?></td>
+      	<?php //echo $id;?>
+
       	<td><?php echo $subject['menu_name']; ?></td>
       	<td><?php echo $subject['content']; ?></td>
       </tr>
