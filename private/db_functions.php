@@ -33,4 +33,9 @@
   	return $subj_arr;		
   }
 
+  function show_subj($id){
+  	$sql = "SELECT * from subjects ";
+  	$sql .= "WHERE subject_id= ".$id;
+  	return $sql;
+  }
 ?>
