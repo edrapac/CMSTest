@@ -38,7 +38,11 @@
   	$sql .= "WHERE subject_id= ".$id;
   	return $sql;
   }
-  function new_subject($name,$position,$visible,$content,$assetid){
+  function showall_subj(){
+  	$sql = "SELECT * from subjects";
+  	return $sql;
+  }
+  function new_subject($name,$position,$visible,$content,$assetid){  //vulnerable to SQL injection currently
   	$sql = "INSERT INTO subjects ";
   	$sql .= "(menu_name,position,visible,content,asset_id) ";
   	$sql .= "VALUES ";
@@ -52,6 +56,12 @@
   }
   function return_assoc_SELECT($id,$conn){
   	$query = show_subj($id); // used for mysqli_query
+  	$result = mysqli_query($conn,$query);
+  	$assoc = mysqli_fetch_assoc($result);
+  	return $assoc;
+  }
+  function return_assoc_SELECT_ALL($conn){
+  	$query = showall_subj(); // used for mysqli_query
   	$result = mysqli_query($conn,$query);
   	$assoc = mysqli_fetch_assoc($result);
   	return $assoc;
